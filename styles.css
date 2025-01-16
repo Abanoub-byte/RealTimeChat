@@ -96,6 +96,11 @@ body{
     cursor: pointer;
 }
 
+.form form .field i.active::before{
+    color: #333;
+    content: "\f070";
+}
+
 .form .link{
     text-align: center;
     margin: 10px 0;
@@ -329,8 +334,27 @@ form .link a:hover{
 }
 
 
+.chat-area .typing-area{
+    padding: 18px 30px;
+    display: flex;
+    justify-content: space-between;
+}
 
 
+.typing-area input{
+    height: 45px;
+    width: calc(100% - 25px);
+    font-size: 14px;
+    border: 1px solid #ccc;
+    padding: 0 13px;
+    border-radius: 20px;
+    outline: none;
+}
 
-
-
+.typing-area button{
+    width: 45px;
+    border: none;
+    outline: none;
+    margin-left: 5px;
+    border-radius: 50%;
+}
