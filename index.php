@@ -44,6 +44,8 @@
             <div class="link">Already signed up? <a href="*">Login now</a></div>
         </section>
     </div>
+    
+    <script src="js/signup.js"></script>
     <script src="js/pass-show.js"></script>
 </body>
 </html>
