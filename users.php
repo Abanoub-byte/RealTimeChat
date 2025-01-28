@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(!isset($_SESSION['unique_id'])){
+    header("location: ../login.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,14 +18,26 @@
     <div class="wrapper">
         <section class="users">
           <header>
+            <?php
+                include_once "php/config.php";
+                $query = "SELECT * FROM users WHERE id = $1";
+                $stmt = pg_prepare($conn, "get_user", $query);
+                if(!$stmt){
+                    error_log("error with the statement".  pg_last_error($conn));
+                }else{
+                    $result = pg_execute($conn, "get_user", [$_SESSION['unique_id']]);
+                    $user = pg_fetch_assoc($result);
+                }
+
+            ?>
             <div class="content">
-                <img src="photo_1.jpg" alt=""></img>
+                <img src="uploads/<?php echo $user['user_image']?>" alt=""></img>
                 <div class="details">
-                    <span>BoB</span>
-                    <p>Active now</p>
+                    <span><?php echo $user['first_name'] . " ". $user['last_name'];?></span>
+                    <p><?php echo $user['status']; ?></p>
                 </div>
             </div>
-            <a href="http://" class="logout">Logout</a>
+            <a href="login.php" class="logout">Logout</a>
           </header>
           <div class="search">
             <span class="text">Select a user to start chating</span>
@@ -28,7 +47,7 @@
           <div class="users-list">
             <a href="">
                 <div class="content">
-                    <img src="photo_1.jpg" alt="">
+                    <img src="uploads/<?php echo $user['user_image']?>" alt="">
                     <div class="details">
                         <span>BoB</span>
                         <p>This is test message.</p>

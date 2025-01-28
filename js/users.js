@@ -6,3 +6,19 @@ searchBtn.onclick = ()=>{
     searchBar.focus();
     searchBtn.classList.toggle("active");
 }
+
+setInterval(()=>{
+    //lets start ajax agin 
+
+    let xhr = new XMLHttpRequest(); 
+    xhr.open("GET","php/users.php", true);
+    xhr.onload = ()=>{
+        if(xhr.readyState === XMLHttpRequest.DONE){
+            if(xhr.status === 200){
+                let data = xhr.response;
+                console.log(data);
+            }
+        }
+    }
+    xhr.send();
+}, 500); //this means the function will run every 500ms 
