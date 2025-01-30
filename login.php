@@ -9,9 +9,9 @@
 </head>
 <body>
     <div class="wrapper">
-        <section class="form signup">
+        <section class="form login">
             <header>Realetime Chat App</header>
-            <form action="*">
+            <form action="php/login.php">
                 <div class="error-txt">This is an error message</div>
                 <div class="name-details">
 
@@ -26,12 +26,13 @@
                     <i class="fas fa-eye"></i>
                 </div>
                 <div class="field button">
-                    <input type="submit" value="continue to chat">
+                    <input type="submit" value="continue to chat" href = "#">
                 </div>
             </form>
-            <div class="link">Not yet signed up? <a href="*">Sign up now</a></div>
+            <div class="link">Not yet signed up? <a href="index.php">Sign up now</a></div>
         </section>
     </div>
     <script src="js/pass-show.js"></script>
+    <script src="js/login.js"></script>
 </body>
 </html>
