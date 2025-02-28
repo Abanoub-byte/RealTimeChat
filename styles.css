@@ -290,7 +290,9 @@ form .link a:hover{
 }
 
 .chat-box{
-    height: 500px;
+    position:relative;
+    min-height: 500px;
+    max-height: 500px;
     overflow-y:auto ;
     background: #f7f7f7;
     padding: 10px 30px 20px 30px;
@@ -305,8 +307,7 @@ form .link a:hover{
 
 .chat-box .chat p{
     word-wrap: break-word; /* For older browsers */
-    overflow-wrap: break-word; /* Modern standard */
-    word-break: break-word; /* Break long unbreakable words */
+
     white-space: normal; /* Allow text wrapping */
     
     padding: 8px 16px;

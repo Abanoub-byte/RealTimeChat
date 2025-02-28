@@ -10,7 +10,7 @@
 <body>
     <div class="wrapper">
         <section class="form signup">
-            <header>Realetime Chat App</header>
+            <header>MemChat</header>
             <form action="#" enctype = "multipart/form-data">
                 <div class="error-txt"></div>
                 <div class="name-details">
@@ -38,7 +38,7 @@
                     <input type="file" name = "image">
                 </div>
                 <div class="field button">
-                    <input type="submit" value="continue to chat" href="#">
+                    <input type="submit" value="Sign up" href="#">
                 </div>
             </form>
             <div class="link">Already signed up? <a href="login.php">Login now</a></div>

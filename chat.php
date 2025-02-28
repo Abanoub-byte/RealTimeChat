@@ -1,3 +1,14 @@
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+session_start();
+if(!isset($_SESSION['unique_id'])){
+    header("location: login.php");
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,69 +22,48 @@
     <div class="wrapper">
         <section class="chat-area">
           <header>
-            <a href="" class="back-icon"><i class="fas fa-arrow-left"></i></a>
+
+            <?php
+                include_once "php/config.php";
+
+              if(isset($_GET['id'])){
+
+                    $user_id = $_GET['id'];
+                    $query = "SELECT * FROM users WHERE id = $1";
+                    $stmt = pg_prepare($conn, "get_id", $query);
+                    $result = pg_execute($conn, "get_id", [$user_id]);
+
+                    if(pg_num_rows($result) > 0){
+                        $user = pg_fetch_assoc($result);
+                    }
+
+              }else{
+                print_r($user);
+              }
+            ?>
+            <a href="users.php" class="back-icon"><i class="fas fa-arrow-left"></i></a>
             <div class="content">
-            <img src="photo_1.jpg" alt=""></img>
-        </div>
+            <img src="uploads/<?php echo $user['user_image'];?>" alt=""></img>
+        </div> 
         <div class="details">
-            <span>BoB</span>
-            <p>Active now</p>
+            <span><?php echo  $user['first_name']. " ". $user['last_name'];?></span>
+            <p><?php echo  $user['status']; ?></p>
         </div>
           </header>
          
           <div class="chat-box">
-            <div class="chat outgoing">
-            <div class="details">
-                <p>we gonna see tossssssssssssssssssssssssssssssssssssssssssssssgether.</p>
-            </div>
-        </div>
+          
        
-        <div class="chat incoming">
-            <img src="photo_1.jpg" alt="">
-            <div class="details">
-                <p>we gonna see together.</p>
-            </div>
         </div>
-        <div class="chat outgoing">
-            <div class="details">
-                <p>we gonna see tossssssssssssssssssssssssssssssssssssssssssssssgether.</p>
-            </div>
-        </div>
-       
-        <div class="chat incoming">
-            <img src="photo_1.jpg" alt="">
-            <div class="details">
-                <p>we gonna see together.</p>
-            </div>
-        </div>  <div class="chat outgoing">
-            <div class="details">
-                <p>we gonna see tossssssssssssssssssssssssssssssssssssssssssssssgether.</p>
-            </div>
-        </div>
-       
-        <div class="chat incoming">
-            <img src="photo_1.jpg" alt="">
-            <div class="details">
-                <p>we gonna see together.</p>
-            </div>
-        </div>  <div class="chat outgoing">
-            <div class="details">
-                <p>we gonna see tossssssssssssssssssssssssssssssssssssssssssssssgether.</p>
-            </div>
-        </div>
-       
-        <div class="chat incoming">
-            <img src="photo_1.jpg" alt="">
-            <div class="details">
-                <p>we gonna see together.</p>
-            </div>
-        </div>
-        </div>
-        <form action="" class="typing-area">
-            <input type="text" placeholder="Type a message">
+        <form action="#" class="typing-area" autocomplete= "off">
+            <input type="text" name= "sender_id" value="<?php echo $_SESSION['unique_id']; ?> "hidden>
+            <input type="text" name = "receiver_id" value="<?php echo $user['id']; ?>"hidden>
+            <input type="text" name = "message" class="input-field" placeholder="Type a message">
             <button><i class="fab fa-telegram-plane"></i></button>
         </form>
         </section>
     </div>
+    <script src = "js/chat.js" ></script>
+    
 </body>
 </html>

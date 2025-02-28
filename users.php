@@ -45,67 +45,7 @@ if(!isset($_SESSION['unique_id'])){
             <button><i class="fas fa-search"></i></button>
           </div>
           <div class="users-list">
-            <a href="">
-                <div class="content">
-                    <img src="uploads/<?php echo $user['user_image']?>" alt="">
-                    <div class="details">
-                        <span>BoB</span>
-                        <p>This is test message.</p>
-                    </div>
-                </div>
-                <div class="status-dot"><i class="fas fa-circle"></i></div>
-            </a>
-            <a href="">
-                <div class="content">
-                    <img src="photo_1.jpg" alt="">
-                    <div class="details">
-                        <span>BoB</span>
-                        <p>This is test message.</p>
-                    </div>
-                </div>
-                <div class="status-dot"><i class="fas fa-circle"></i></div>
-            </a>
-            <a href="">
-                <div class="content">
-                    <img src="photo_1.jpg" alt="">
-                    <div class="details">
-                        <span>BoB</span>
-                        <p>This is test message.</p>
-                    </div>
-                </div>
-                <div class="status-dot"><i class="fas fa-circle"></i></div>
-            </a>
-            <a href="">
-                <div class="content">
-                    <img src="photo_1.jpg" alt="">
-                    <div class="details">
-                        <span>BoB</span>
-                        <p>This is test message.</p>
-                    </div>
-                </div>
-                <div class="status-dot"><i class="fas fa-circle"></i></div>
-            </a>
-            <a href="">
-                <div class="content">
-                    <img src="photo_1.jpg" alt="">
-                    <div class="details">
-                        <span>BoB</span>
-                        <p>This is test message.</p>
-                    </div>
-                </div>
-                <div class="status-dot"><i class="fas fa-circle"></i></div>
-            </a>
-            <a href="">
-                <div class="content">
-                    <img src="photo_1.jpg" alt="">
-                    <div class="details">
-                        <span>BoB</span>
-                        <p>This is test message.</p>
-                    </div>
-                </div>
-                <div class="status-dot"><i class="fas fa-circle"></i></div>
-            </a>
-          </div>
+             
         </section>
     </div>
     <script src="js/users.js"></script>

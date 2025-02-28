@@ -10,7 +10,7 @@
 <body>
     <div class="wrapper">
         <section class="form login">
-            <header>Realetime Chat App</header>
+            <header>Rizz</header>
             <form action="php/login.php">
                 <div class="error-txt">This is an error message</div>
                 <div class="name-details">
