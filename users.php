@@ -37,7 +37,7 @@ if(!isset($_SESSION['unique_id'])){
                     <p><?php echo $user['status']; ?></p>
                 </div>
             </div>
-            <a href="login.php" class="logout">Logout</a>
+            <a href="php/logout.php?logout_id=<?php echo $user['id']?>" class="logout">Logout</a>
           </header>
           <div class="search">
             <span class="text">Select a user to start chating</span>

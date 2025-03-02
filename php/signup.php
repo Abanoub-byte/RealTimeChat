@@ -72,7 +72,6 @@ if (!empty($first_name) && !empty($last_name) && !empty($email) && !empty($plain
         $_SESSION['unique_id'] = $row['id'];
         echo "success";
     }
-
    }
   }else {
     die("All input fields are required!");
